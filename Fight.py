@@ -33,12 +33,18 @@ class Affrontement:
         while heros.pv > 0 or mechant.pv > 0:
 
             if heros.initiative > mechant.initiative:
-                mechant.decrementPV(randint(1, heros.dmg))
+                mechant.decrement_PV(randint(1, heros.dmg))
             else:
-                heros.decrementPV(randint(1, mechant.dmg))
+                heros.decrement_PV(randint(1, mechant.max_dmg))
 
         if heros.pv <= 0:
-            win = mechant.name
+            print(f"{mechant.name} a gagné le combat avec {mechant.pv}")
         elif mechant.pv <= 0:
-            win = heros.name
+            print(f"{heros.name} a gagné le combat avec {heros.pv}")
+
+combattant = Heroes.Barbare("Rendal")
+gnome = Hostiles.Monstre()
+
+tournoi = Affrontement()
+tournoi.combatAMort(combattant,gnome)
 

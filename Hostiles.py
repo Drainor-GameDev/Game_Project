@@ -1,7 +1,7 @@
 from random import randint, random
 
 
-class Montre:
+class Monstre:
     _ListeArme = ["couteau", "sabre", "marteau"]
 
     _PuissanceArme = {"couteau": 3, "sabre": 6, "marteau": 9}
@@ -33,6 +33,6 @@ class Montre:
         self.pv -= damage
 
 
-monstre = Montre()
+monstre = Monstre()
 
 print(monstre)
