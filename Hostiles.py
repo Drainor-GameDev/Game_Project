@@ -29,6 +29,9 @@ class Montre:
     def get_pv(self):
         return self.pv
 
+    def decrement_PV(self, damage):
+        self.pv -= damage
+
 
 monstre = Montre()
 
