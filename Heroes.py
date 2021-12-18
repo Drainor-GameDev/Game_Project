@@ -1,10 +1,10 @@
 class Barbare:
 
-    def __init__(self, name="Conan", initiative=12, dmg=7, pv=120):
+    def __init__(self, name="Conan"):
         self.name = name
-        self.initiative = initiative
-        self.dmg = dmg
-        self.pv = pv
+        self.initiative = 12
+        self.dmg = 7
+        self.pv = 120
 
     def get_name(self):
         return self.name
@@ -24,7 +24,3 @@ class Barbare:
     def decrement_PV(self, damage):
         self.pv -= damage
 
-
-combatant = Barbare("YANIS")
-
-print(combatant)

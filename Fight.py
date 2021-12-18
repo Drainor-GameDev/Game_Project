@@ -30,25 +30,41 @@ class Affrontement:
         win = ''
         HerosTurn = heros.initiative >= mechant.initiative
 
-        print(f"Combat opposant {heros.name} le Barbare ({heros.pv} PV) à un monstre armé d'un couteau avec une initiative de {mechant.initiative}")
+        print("Combat opposant ", heros, " à ", mechant)
 
         while heros.pv > 0 and mechant.pv > 0:
             if HerosTurn:
                 mechant.decrement_PV(randint(1, heros.dmg))
+                self.incr_nbCoupEchange()
             else:
                 heros.decrement_PV(randint(1, mechant.max_dmg))
             print('PAF')
             HerosTurn = not HerosTurn
-
         print('Arghhhhh....')
+        self.incr_nbCombat()
         if heros.pv <= 0:
             print(f"Le monstre ({mechant.pv} PV) a remporté le combat à mort")
         else:
             print(f"{heros.name} le Barbare ({heros.pv} PV), a remporté le combat à mort")
 
+
+    def survival(self, name):
+
+        heros = Heroes.Barbare(name)
+        while heros.pv > 0:
+            mechant = Hostiles.Monstre()
+            self.combatAMort(heros, mechant)
+            print()
+
+        print(f"Avant de mourrir, {heros.name} a remporté ", self.get_nb_fight(),
+        " combats dans une lutte durant laquelle se sont échangés ", self.get_nb_shot(), " coups...")
+
+
+
+
+
 combattant = Heroes.Barbare("Rendal")
 gnome = Hostiles.Monstre()
-
 tournoi = Affrontement()
-tournoi.combatAMort(combattant,gnome)
+tournoi.survival('YANIS')
 

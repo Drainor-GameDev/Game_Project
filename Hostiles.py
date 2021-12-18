@@ -15,7 +15,7 @@ class Monstre:
         self.max_dmg = self._PuissanceArme[self.arme]
 
     def __str__(self):
-        return f"Un monstre armé d'un {self.arme} avec une initiative de {self.initiative}"
+        return f"un monstre armé d'un {self.arme} avec une initiative de {self.initiative}"
 
     def get_arme(self):
         return self.arme
