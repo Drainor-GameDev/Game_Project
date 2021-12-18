@@ -28,19 +28,23 @@ class Affrontement:
     def combatAMort(self, heros, mechant):
 
         win = ''
+        HerosTurn = heros.initiative >= mechant.initiative
+
         print(f"Combat opposant {heros.name} le Barbare ({heros.pv} PV) à un monstre armé d'un couteau avec une initiative de {mechant.initiative}")
 
-        while heros.pv > 0 or mechant.pv > 0:
-
-            if heros.initiative > mechant.initiative:
+        while heros.pv > 0 and mechant.pv > 0:
+            if HerosTurn:
                 mechant.decrement_PV(randint(1, heros.dmg))
             else:
                 heros.decrement_PV(randint(1, mechant.max_dmg))
+            print('PAF')
+            HerosTurn = not HerosTurn
 
+        print('Arghhhhh....')
         if heros.pv <= 0:
-            print(f"{mechant.name} a gagné le combat avec {mechant.pv}")
-        elif mechant.pv <= 0:
-            print(f"{heros.name} a gagné le combat avec {heros.pv}")
+            print(f"Le monstre ({mechant.pv} PV) a remporté le combat à mort")
+        else:
+            print(f"{heros.name} le Barbare ({heros.pv} PV), a remporté le combat à mort")
 
 combattant = Heroes.Barbare("Rendal")
 gnome = Hostiles.Monstre()
