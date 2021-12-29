@@ -1,51 +1,54 @@
 class Chest:
 
-    def __init__(self, name="Conan"):
+    def __init__(self, name="Armure Du Roi Déchu", armor = 20,critProbBonus = 10, critDmgBonus = 105,initiativeBonus = 2):
         self.name = name
-        self.initiative = 12
-        self.dmg = 7
-        self.pv = 120
+        self.armor = armor
+        self.critProbBonus = critProbBonus
+        self.critDmgBonus = critDmgBonus
+        self.initiativeBonus = initiativeBonus
 
     def get_name(self):
         return self.name
+        
+    def get_armor(self):
+        return self.armor
+        
+    def get_critProbBonus(self):
+        return self.critProbBonus
+    
+    def get_critDmgBonus(self):
+        return self.critDmgBonus
 
-    def get_initiative(self):
-        return self.initiative
-
-    def get_dmg(self):
-        return self.dmg
-
-    def get_pv(self):
-        return self.pv
+    def get_initiativeBonus(self):
+        return self.initiativeBonus
 
     def __str__(self):
-        return f"{self.name} le Barbare ({self.pv} PV)"
-
-    def decrement_PV(self, damage):
-        self.pv -= damage
+        return f"{self.name} ({self.armor} Armure, {self.critProbBonus} Probabilité Critique Bonus, {self.critDmgBonus} Dégats Critiques Bonus, {self.initiativeBonus} Initiative Bonus)"
 
 class Weapon:
 
-    def __init__(self, name="Baton", damage = 2,critProbBonus = 0.1, critDmgBonus = 1,initiativeBonus = 0.5):
+    def __init__(self, name="DeuilleGivre", damage = 150000,critProbBonus = 10, critDmgBonus = 1000,initiativeBonus = 10):
         self.name = name
-        self.dmg = 7
-        self.pv = 120
+        self.damage = damage
+        self.critProbBonus = critProbBonus
+        self.critDmgBonus = critDmgBonus
+        self.initiativeBonus = initiativeBonus
 
     def get_name(self):
         return self.name
+        
+    def get_damage(self):
+        return self.damage
+        
+    def get_critProbBonus(self):
+        return self.critProbBonus
+    
+    def get_critDmgBonus(self):
+        return self.critDmgBonus
 
-    def get_initiative(self):
-        return self.initiative
-
-    def get_dmg(self):
-        return self.dmg
-
-    def get_pv(self):
-        return self.pv
+    def get_initiativeBonus(self):
+        return self.initiativeBonus
 
     def __str__(self):
-        return f"{self.name} le Barbare ({self.pv} PV)"
-
-    def decrement_PV(self, damage):
-        self.pv -= damage
+        return f"{self.name} ({self.damage} Dégats, {self.critProbBonus} Probabilité Critique Bonus, {self.critDmgBonus} Dégats Critiques Bonus, {self.initiativeBonus} Initiative Bonus)"
 
