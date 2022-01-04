@@ -62,6 +62,17 @@ class Guerrier:
             print("Parré")
         else:
            self.pv -= int(damage * ((self.armor + self.chestPlate.get_armor) / 100))
+    
+    def add_PV(self, heal):
+        self.pv += heal
+
+    def attack(self, other):
+        attaque = int(input(f"Quel attaque utilisez vous?\n [0: {self._ListeAttaques[0]}, 1: {self._ListeAttaques[1]}, 2: {self._ListeAttaques[2]}]"))
+        degats = self.dmg
+        if randint(0,100) <= self.critProbability:
+            degats += self.dmg * (self.critDamage/100)
+        other.decrement_PV(degats * -(attaque - 2))
+        self.add_PV(degats * attaque / 2)
 
 
 print(Guerrier())

@@ -48,7 +48,7 @@ class Boss:
         return self.critDamage
 
     def __str__(self):
-        return self.name
+        return self.name + " Niveau: " + self.level
 
     def decrement_PV(self, damage):
         if randint(0,100) <= self.dodge:
@@ -56,4 +56,14 @@ class Boss:
         elif randint(0,100) <= self.parry:
             print("Parré")
         else:
-           self.pv -= int(damage*(self.armor / 100))
+            print("Paf")
+            self.pv -= int(damage*(self.armor / 100))
+
+    def add_PV(self, heal):
+        self.pv += heal
+
+    def attack(self, other):
+        degats = self.dmg
+        if randint(0,100) <= self.critProbability:
+            degats += self.dmg * (self.critDamage/100)
+        other.decrement_PV(degats)
